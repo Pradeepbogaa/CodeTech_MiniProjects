@@ -1,0 +1,36 @@
+import requests
+from bs4 import BeautifulSoup
+
+# Example: Extracting news headlines from a website using Beautiful Soup
+url = "https://example.com/news"  # Replace with the actual news website URL
+
+# Send an HTTP request to the website
+response = requests.get(url)
+
+# Parse the HTML content using Beautiful Soup
+soup = BeautifulSoup(response.content, "html.parser")
+
+# Find all news headlines
+headlines = soup.find_all("h2", class_="news-title")
+
+# Print the headlines
+for headline in headlines:
+    print(headline.text)
+
+# Example: Extracting product prices from an e-commerce website using Beautiful Soup
+url = "https://example.com/products"  # Replace with the actual e-commerce website URL
+
+# Send an HTTP request to the website
+response = requests.get(url)
+
+# Parse the HTML content using Beautiful Soup
+soup = BeautifulSoup(response.content, "html.parser")
+
+# Find all product prices
+prices = soup.find_all("span", class_="product-price")
+
+# Print the prices
+for price in prices:
+    print(price.text)
+
+
